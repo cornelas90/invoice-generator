@@ -36,7 +36,7 @@ def hello_world():
 			'to_addr': {
 				'company_name': 'Chuck\'s Cafe',
 				'person_email': 'HansyPans@gmail.com',
-				'person_name': 'Preston Handsom'
+				'person_name': 'Preston Hansenvilleson'
 	}
 	}
 
@@ -46,10 +46,6 @@ def hello_world():
 	invoice_number = posted_data.get('invoice_number', default_data['invoice_number'])
 	items = posted_data.get('items', default_data['items'])
 
-	#items = [{'title':'Website Design','charge': 300.00},
-	#{'title':'Hosting (3 months)','charge': 75.00},
-	#{'title':'Domain name (1 year)', 'charge': 10.00}]
-	#duedate = 'August 1, 2018'
 	total = sum([i['charge']for i in items])
 	rendered = render_template('invoice.html', date = today, from_addr = from_addr, to_addr = to_addr, items = items, total = total, invoice_number = invoice_number, duedate = duedate)
 	html = HTML(string=rendered)
